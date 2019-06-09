@@ -13,7 +13,7 @@
 
       <Row v-if="this.$route.params.page === '1'">
         <i-col span='18' class="content" push='3'>
-          <i-col class="col4" span='5' :xs='24'>
+          <i-col class="col4" :sm='5' :xs='24'>
             <div class="pic">
               <img
                 :src="doc.pic"
@@ -28,7 +28,6 @@
           <i-col
             class="col14"
             span='19'
-            :xs='24'
           >
             <div
               class="ql-editor"
@@ -50,7 +49,7 @@
         >
           <i-col
             class="col4"
-            span='5'
+            :sm='5'
             :xs='24'
           >
             <div class="pic">
@@ -67,7 +66,7 @@
           <i-col
             class="col14"
             span='19'
-            :xs='24'
+
           >
             <div
               class="ql-editor"
@@ -227,7 +226,8 @@ export default {
         display: inline-block;
         img {
           border: 1px solid black;
-          width: 110px;
+          width: 100%;
+          max-width: 110px;
         }
       }
       .name {
@@ -268,7 +268,8 @@ export default {
 
     }
     .content .col14 {
-      min-height: 0px
+      min-height: 0px;
+      border: none;
     }
     .pic,.name {
       display: inline-block;

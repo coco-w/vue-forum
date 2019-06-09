@@ -1,8 +1,11 @@
+
 <template>
-  <div id="app">
+    <div id="app">
     <router-view v-if="isRouterAlive"/>
-  </div>
+
+    </div>
 </template>
+<script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
 <script>
 export default {
   provide() {

@@ -35,9 +35,14 @@ export default {
   },
   mounted() {
     let id = this.$route.params.id
-    console.log(id)
+    console.log('res.err_code')
     this.getCommentsHistory(id).then(res => {
+      console.log(res.err_code)
+      if (res.err_code) {
+        this.$Message.error('服务器错误，稍后再试')
+      }
       this.comments = res.doc.comments
+      console.log('histroy')
 
     })
   }

@@ -1,8 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import routes from './router'
-import { setToken, getToken } from '@/lib/util'
-
+import { getToken } from '@/lib/util'
 Vue.use(Router)
 
 const router = new Router({

@@ -1,4 +1,5 @@
 <template>
+
   <div>
     <Upload style="display: none" action="/api/saveImg" :on-progress='handleProgress' :on-success='handleSuccess' :on-error='handleError' >
         <Button class="saveImg" icon="ios-cloud-upload-outline"></Button>
@@ -10,6 +11,7 @@
       @blur="onEditorBlur($event)" @focus="onEditorFocus($event)"
       @change="onEditorChange($event)">
     </quill-editor>
+
   </div>
 </template>
 
