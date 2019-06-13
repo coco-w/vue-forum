@@ -62,12 +62,12 @@ export const newEdit = params => {
     }
   })
 }
-export const getTopic = (user) => {
+export const getTopic = (params) => {
   return axios.request({
     url: '/api/getTopic',
-    method: 'get',
+    method: 'post',
     data: {
-      user
+      params
     }
   })
 }
@@ -102,12 +102,12 @@ export const getComment = arr => {
   })
 }
 
-export const getCommentsHistory = id => {
+export const getCommentsHistory = params => {
   return axios.request({
     url: '/api/getCommentsHistory',
     method: 'post',
     data: {
-      id
+      params
     }
   })
 }

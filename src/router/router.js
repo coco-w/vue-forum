@@ -42,12 +42,20 @@ export default [
         component: () => import('@/views/userInfo.vue')
       },
       {
-        path: '/userSpace/:id/history',
+        path: '/userSpace/:id/history/:page',
         name: 'history',
         meta: {
           title: '历史记录'
         },
         component: () => import('@/views/history.vue')
+      },
+      {
+        path: '/userSpace/:id/topic/:page',
+        name: 'topicHistory',
+        meta: {
+          title: '发帖记录'
+        },
+        component: () => import('@/views/topicHistory.vue')
       }
     ]
 

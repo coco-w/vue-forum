@@ -7,6 +7,7 @@
         hide-trigger
         breakpoint="sm"
         v-model="collapsed"
+        :style='height'
       >
       <Menu></Menu>
       </Sider>
@@ -19,13 +20,14 @@
 import { mapState, mapMutations, mapActions } from 'vuex'
 import HeaderNav from '@/components/HeaderNav.vue'
 import Menu from '@/components/Menu.vue'
+import { clearTimeout, setTimeout } from 'timers';
 
 export default {
   data () {
     return {
       theme3: 'light',
       collapsed: false,
-
+      height: ''
     }
   },
   components: {
@@ -35,7 +37,8 @@ export default {
   computed: {
     ...mapState({
       isUpdate: state => state.user.isUpdate
-    })
+    }),
+
   },
   // watch: {
   //   isUpdate() {
@@ -46,21 +49,34 @@ export default {
     handleCollapsed () {
       this.collapsed = !this.collapsed
     },
+    changeHeight () {
+
+    }
   },
+  mounted() {
+    this.height = {minHeight: `${window.innerHeight-65}px`}
+    window.onresize = () => {
+      if (timer) {
+        clearTimeout(timer)
+      }
+      let timer = setTimeout(() => {
+        this.height = {minHeight: `${window.innerHeight-65}px`}
+        console.log('dasd')
+        timer = undefined
+      },500)
+    }
+  }
 
 }
 </script>
 
 <style lang="less">
-
-.layout-wrapper,
-.layout-outer {
-  height: 100%;
-}
 .layout-wrapper {
+  height: 100%;
   .wrapper-header {
     position: relative;
-  }.ivu-layout-sider-children > .ivu-menu {
+  }
+  .ivu-layout-sider-children > .ivu-menu {
   overflow: hidden;
   .menu-box {
     overflow-y: scroll;

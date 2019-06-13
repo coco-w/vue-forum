@@ -6,7 +6,7 @@
         <i-col :md='{span:1}' :xs='{span:3}'><img :src="item.pic" alt=""></i-col>
         <i-col :md='{span:4}' :xs='{span:21}'><a @click="hanldeTopic(item._id)">{{item.title}}</a></i-col>
         <i-col :md='{span:4 ,push:12}' :xs='{span:0}'><a @click="hanldeUserSpace(item.author_id)">{{item.author}}</a>  </i-col>
-         <i-col :md='{span:4, push: 11}' :xs='{span:0}'><span><Time :time="item.create_time" type="datetime" /></span></i-col>
+        <i-col :md='{span:4, push: 11}' :xs='{span:0}'><span><Time :time="item.create_time" type="datetime"/></span></i-col>
       </Row>
     </div>
   </Card>
@@ -34,7 +34,7 @@ export default {
   },
   mounted() {
     this.getTopic().then(doc => {
-      this.topic = doc
+      this.topic = doc.doc
     })
   }
 }

@@ -2,15 +2,20 @@
   <Menu
     :active-name="active"
     width='200'
+
   >
     <MenuGroup :title='name' >
       <MenuItem :to='`/userSpace/${this.$route.params.id}/userinfo`' name="userinfo">
       <Icon type="md-document" />
       <span >个人信息</span>
       </MenuItem>
-      <MenuItem :to='`/userSpace/${this.$route.params.id}/history`'  name="history">
+      <MenuItem :to='`/userSpace/${this.$route.params.id}/history/1`'  name="history">
       <Icon type="md-chatbubbles"/>
-      <span >历史纪录</span>
+      <span >回帖记录</span>
+      </MenuItem>
+      <MenuItem :to='`/userSpace/${this.$route.params.id}/topic/1`'  name="topic">
+      <Icon type="md-copy" />
+      <span >发帖记录</span>
       </MenuItem>
     </MenuGroup>
   </Menu>
@@ -33,6 +38,9 @@ export default {
     active() {
       return this.$route.name
     }
+  },
+  mounted() {
+    console.log(window.innerHeight)
   }
 }
 </script>

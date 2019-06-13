@@ -1,4 +1,4 @@
-import { newEdit, getTopic, getOneTopic, saveComment, getComment, getCommentsHistory, downLoadImg } from '@/api/app'
+import { newEdit, getTopic, getOneTopic, saveComment, getComment, getCommentsHistory, downLoadImg, getTopicHistory } from '@/api/app'
 
 const state = {
 
@@ -19,7 +19,7 @@ const actions = {
   getTopic ({ commit }, user) {
     return new Promise((resolve, reject) => {
       getTopic(user).then(res => {
-        resolve(res.doc)
+        resolve(res)
       })
     })
   },
@@ -44,9 +44,9 @@ const actions = {
       })
     })
   },
-  getCommentsHistory ({ commit }, id) {
+  getCommentsHistory ({ commit }, params) {
     return new Promise((resolve, reject) => {
-      getCommentsHistory(id).then(res => {
+      getCommentsHistory(params).then(res => {
         resolve(res)
       })
     })
@@ -54,6 +54,13 @@ const actions = {
   downLoadImg ({ commit }, srcArr) {
     return new Promise((resolve, reject) => {
       downLoadImg(srcArr).then(res => {
+        resolve(res)
+      })
+    })
+  },
+  getTopicHistory ({ commit }, params) {
+    return new Promise((resolve, reject) => {
+      getTopicHistory(params).then(res => {
         resolve(res)
       })
     })

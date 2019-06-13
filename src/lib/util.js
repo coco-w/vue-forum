@@ -18,3 +18,11 @@ export const parsingToken = () => {
     return doc
   })
 }
+
+export const hanldeTopic = (id) => {
+  this.$router.push(`/topic/${id}/1`)
+}
+
+export const hanldeUserSpace = (id) => {
+  this.$router.push(`/userSpace/${id}/userinfo`)
+}

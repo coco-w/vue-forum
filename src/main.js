@@ -29,12 +29,14 @@ import {
   DropdownMenu,
   MenuGroup,
   RadioGroup,
-  Radio
+  Radio,
+  Scroll
 } from 'iview'
 import 'iview/dist/styles/iview.css'
 
 Vue.component('Card', Card)
 Vue.component('Affix', Affix)
+Vue.component('Scroll', Scroll)
 Vue.component('Menu', Menu)
 Vue.component('Sider', Sider)
 Vue.component('Upload', Upload)

@@ -34,7 +34,7 @@
             <span v-else>{{value.bio}}</span>
         </FormItem>
         <FormItem label="创建时间" prop='created_time'>
-            <span>{{formatDate(new Date(value.created_time), 'yyyy-MM-dd hh:mm')}}</span>
+            <span><Time :time='new Date(value.created_time)' type='datetime'></Time></span>
         </FormItem>
         <FormItem>
             <Button v-if="isMe" @click="handleSubmit" type="primary">保存</Button>
@@ -46,7 +46,6 @@
 </div>
 </template>
 <script>
-import { formatDate } from '@/lib/tools'
 import { mapActions } from 'vuex'
 import clonedeep from 'clonedeep'
 export default {

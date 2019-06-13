@@ -1,6 +1,6 @@
 <template>
   <div class="comments">
-    <div class="item" v-for="item in this.comments" :key="item._id">
+      <div class="item" v-for="item in this.comments" :key="item._id">
       <Row>
         <i-col span='20'>
           <span>帖子：  </span>
@@ -13,6 +13,8 @@
       <div class="ql-editor" v-html="item.content">
       </div>
     </div>
+    <Spin size="large" fix v-if="spinShow"></Spin>
+    <Page :total="page" :current='num' @on-change='handlePageChange'/>
   </div>
 </template>
 
@@ -20,9 +22,13 @@
 import { mapActions } from 'vuex'
 export default {
   name: 'commentsHistory',
+  inject: ['reload'],
   data() {
     return {
-      comments: []
+      comments: [],
+      spinShow: false,
+      num: 1,
+      page: 0,
     }
   },
   methods: {
@@ -32,18 +38,24 @@ export default {
     hanldeTopic(id) {
       this.$router.push(`/topic/${id}/1`)
     },
+    handlePageChange(index) {
+      this.$router.push(`/userSpace/${this.$route.params.id}/history/${index}`)
+      this.num = index
+      this.reload()
+    }
   },
   mounted() {
     let id = this.$route.params.id
-    console.log('res.err_code')
-    this.getCommentsHistory(id).then(res => {
-      console.log(res.err_code)
+    this.spinShow = true
+    this.num = Number(this.$route.params.page)
+    let num = this.num
+    this.getCommentsHistory({id, num}).then(res => {
       if (res.err_code) {
         this.$Message.error('服务器错误，稍后再试')
       }
       this.comments = res.doc.comments
-      console.log('histroy')
-
+      this.page = res.doc.len
+      this.spinShow = false
     })
   }
 }
