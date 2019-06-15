@@ -1,4 +1,4 @@
-import { newEdit, getTopic, getOneTopic, saveComment, getComment, getCommentsHistory, downLoadImg, getTopicHistory } from '@/api/app'
+import { newEdit, getTopic, getOneTopic, saveComment, getComment, getCommentsHistory, downLoadImg, deleteComment, changeComment, deleteTopic, changeTopicTitle } from '@/api/app'
 
 const state = {
 
@@ -58,9 +58,30 @@ const actions = {
       })
     })
   },
-  getTopicHistory ({ commit }, params) {
+  deleteComment ({ commit }, id) {
     return new Promise((resolve, reject) => {
-      getTopicHistory(params).then(res => {
+      deleteComment(id).then(res => {
+        resolve(res)
+      })
+    })
+  },
+  changeComment ({ commit }, params) {
+    return new Promise((resolve, reject) => {
+      changeComment(params).then(res => {
+        resolve(res)
+      })
+    })
+  },
+  deleteTopic ({ commit }, id) {
+    return new Promise((resolve, reject) => {
+      deleteTopic(id).then(res => {
+        resolve(res)
+      })
+    })
+  },
+  changeTopicTitle ({ commit }, params) {
+    return new Promise((resolve, reject) => {
+      changeTopicTitle(params).then(res => {
         resolve(res)
       })
     })

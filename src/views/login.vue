@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import { mapActions,mapMutations } from 'vuex'
+import { mapActions,mapMutations,mapState } from 'vuex'
 export default {
   name: 'login',
   data () {
@@ -50,12 +50,18 @@ export default {
       }
     }
   },
+  computed: {
+    ...mapState({
+      webside: state => state.user.beforeLoginWebside
+    })
+  },
   methods: {
     ...mapActions([
       'login',
     ]),
     ...mapMutations([
-      'SET_ID'
+      'SET_ID',
+      'SET_WEBSIDE',
     ]),
     handleRegister() {
       this.$router.push('/register')
@@ -67,9 +73,14 @@ export default {
           this.$Message.warning(res.message)
           return
         }
-        this.$router.push('/')
+        this.$router.push(this.webside)
       })
     }
+  },
+  beforeRouteEnter(to, from, next) {
+    next(vm => {
+      vm.SET_WEBSIDE(from.path)
+    })
   }
 }
 </script>

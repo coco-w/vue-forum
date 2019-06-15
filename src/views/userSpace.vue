@@ -11,7 +11,9 @@
       >
       <Menu></Menu>
       </Sider>
+       <Layout>
       <router-view ref="children"></router-view>
+       </Layout>
     </Layout>
   </div>
 </template>

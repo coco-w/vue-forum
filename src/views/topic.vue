@@ -123,7 +123,7 @@
 <script>
 import HeaderNav from '@/components/HeaderNav.vue'
 import Editor from '@/components/Editor.vue'
-import { mapActions } from 'vuex'
+import { mapActions,mapState } from 'vuex'
 export default {
   name: 'topic',
   inject: ['reload'],
@@ -141,6 +141,11 @@ export default {
     HeaderNav,
     Editor,
   },
+  computed: {
+    ...mapState({
+      isLogin: state => state.user.isLogin
+    })
+  },
   methods: {
     ...mapActions([
       'getOneTopic',
@@ -148,17 +153,22 @@ export default {
       'getComment'
     ]),
     handleSubmit () {
-      let body = {}
-      body.content = this.comment
-      body.author_id = this.$refs.user.id
-      body.topic_id = this.$route.params.id
-      this.saveComment(body).then(res => {
-        if (res.err_code) {
-          return this.$Message.error(res.message)
-        }
-        this.$Message.success(res.message)
-        this.reload()
-      })
+      if (this.isLogin) {
+        let body = {}
+        body.content = this.comment
+        body.author_id = this.$refs.user.id
+        body.topic_id = this.$route.params.id
+        this.saveComment(body).then(res => {
+          if (res.err_code) {
+            return this.$Message.error(res.message)
+          }
+          this.$Message.success(res.message)
+          this.reload()
+        })
+      }else {
+           return this.$Message.error('登陆')
+      }
+
     },
     handlePageChange (index) {
       this.$router.push(`/topic/${this.$route.params.id}/${index}`)

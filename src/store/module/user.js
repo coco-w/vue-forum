@@ -4,7 +4,8 @@ import { setToken, getToken } from '@/lib/util'
 const state = {
   'isLogin': false,
   'id': '',
-  'isUpdate': 0
+  'isUpdate': 0,
+  'beforeLoginWebside': ''
 }
 
 const mutations = {
@@ -19,6 +20,9 @@ const mutations = {
   },
   ISUPDATE (state) {
     state.isUpdate++
+  },
+  SET_WEBSIDE (state, webside) {
+    state.beforeLoginWebside = webside
   }
 }
 

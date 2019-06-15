@@ -78,6 +78,11 @@ export default {
       }
     }
   },
+  watch: {
+    content() {
+      this.value = this.content
+    }
+  },
   methods: {
     ...mapActions([
       'downLoadImg'

@@ -121,3 +121,43 @@ export const downLoadImg = srcArr => {
     }
   })
 }
+
+export const deleteComment = id => {
+  return axios.request({
+    url: '/api/deleteComment',
+    method: 'post',
+    data: {
+      id
+    }
+  })
+}
+
+export const changeComment = params => {
+  return axios.request({
+    url: '/api/changeComment',
+    method: 'post',
+    data: {
+      params
+    }
+  })
+}
+
+export const deleteTopic = id => {
+  return axios.request({
+    url: '/api/deleteTopic',
+    method: 'post',
+    data: {
+      id
+    }
+  })
+}
+
+export const changeTopicTitle = params => {
+  return axios.request({
+    url: '/api/changeTopicTitle',
+    method: 'post',
+    data: {
+      params
+    }
+  })
+}

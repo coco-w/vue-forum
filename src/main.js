@@ -30,13 +30,12 @@ import {
   MenuGroup,
   RadioGroup,
   Radio,
-  Scroll
+  Modal
 } from 'iview'
 import 'iview/dist/styles/iview.css'
 
 Vue.component('Card', Card)
 Vue.component('Affix', Affix)
-Vue.component('Scroll', Scroll)
 Vue.component('Menu', Menu)
 Vue.component('Sider', Sider)
 Vue.component('Upload', Upload)
@@ -61,7 +60,9 @@ Vue.component('AnchorLink', AnchorLink)
 Vue.component('Page', Page)
 Vue.component('Layout', Layout)
 Vue.component('Content', Content)
+Vue.component('Modal', Modal)
 Vue.prototype.$Message = Message
+Vue.prototype.$Modal = Modal
 
 Vue.config.productionTip = false
 
