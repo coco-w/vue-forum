@@ -22,7 +22,9 @@ const mutations = {
     state.isUpdate++
   },
   SET_WEBSIDE (state, webside) {
-    state.beforeLoginWebside = webside
+    if (webside !== '/register') {
+      state.beforeLoginWebside = webside
+    }
   }
 }
 

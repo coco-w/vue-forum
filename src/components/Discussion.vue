@@ -1,5 +1,6 @@
 <template>
-  <Card>
+  <div class="discussion">
+    <Card>
     <div slot="title">新手交流</div>
     <div>
       <Row  v-for="item in topic" :key='item.id'>
@@ -10,6 +11,7 @@
       </Row>
     </div>
   </Card>
+  </div>
 </template>
 <script>
 import { mapActions } from 'vuex'
@@ -39,9 +41,10 @@ export default {
   }
 }
 </script>
-<style lang="less" >
+<style lang="less">
 
-.ivu-card {
+.discussion {
+  .ivu-card {
   width: 95%;
   margin: 0 auto;
   /* position: absolute; */
@@ -61,7 +64,6 @@ export default {
         float: right;
         margin-left: 20px;
       }
-
-
+}
 }
 </style>

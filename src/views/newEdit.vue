@@ -10,7 +10,7 @@
             <Editor v-model='content'></Editor>
           </div>
           <Row>
-            <i-col span="2" push="22">
+            <i-col span="2" push="20">
             <Button type="primary" @click="handleSubmit">提交</Button>
             </i-col>
           </Row>

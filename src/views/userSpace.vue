@@ -2,17 +2,21 @@
   <div class="layout-wrapper">
     <header-nav :isUpdate='isUpdate' ref='headerNav'></header-nav>
     <Layout class="layout-outer">
+
       <Sider
         collapsible
         hide-trigger
         breakpoint="sm"
+        :collapsed-width="78"
         v-model="collapsed"
         :style='height'
       >
+
       <Menu></Menu>
       </Sider>
        <Layout>
-      <router-view ref="children"></router-view>
+         <Icon type="ios-list" class="list" @click='handleCollapsed'/>
+        <router-view ref="children"></router-view>
        </Layout>
     </Layout>
   </div>
@@ -75,6 +79,16 @@ export default {
 <style lang="less">
 .layout-wrapper {
   height: 100%;
+  .list{
+    position: absolute;
+    font-size: 40px;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  @media screen and (min-width: 576px) {
+    .list {
+      display: none;
+    }
+  }
   .wrapper-header {
     position: relative;
   }
@@ -118,6 +132,7 @@ export default {
 .card-page {
   height: ~"calc(100vh - 84px)";
 }
+
 }
 
 </style>

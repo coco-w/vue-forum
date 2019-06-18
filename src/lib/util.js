@@ -11,7 +11,7 @@ export const setToken = (data) => {
 
 export const parsingToken = () => {
   let token = getToken()
-  jwt.verify(token, 'asd', (err, doc) => {
+  return jwt.verify(token, 'asd', (err, doc) => {
     if (err) {
       console.log(err)
     }

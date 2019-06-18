@@ -42,7 +42,8 @@
             <DropdownMenu slot="list">
               <DropdownItem><a @click="handlePosting">发帖</a></DropdownItem>
               <DropdownItem><a @click="handleUserSpace">个人空间</a></DropdownItem>
-                <DropdownItem><a @click="handleOutlog">登出</a></DropdownItem>
+              <DropdownItem v-if="state === 1 || state === 2"><a @click="handleAdmin">管理中心</a></DropdownItem>
+              <DropdownItem><a @click="handleOutlog">登出</a></DropdownItem>
 
             </DropdownMenu>
           </Dropdown>
@@ -62,6 +63,7 @@ export default {
       nickname: '',
       pic: '',
       id: '',
+      state: 0,
     }
   },
   props: {
@@ -97,11 +99,15 @@ export default {
     handleGOHome() {
       this.$router.push('/')
     },
+    handleAdmin() {
+      this.$router.push(`/admin`)
+    },
     update () {
       this.authorization().then(res => {
         this.pic = res.pic
         this.nickname = res.nickname
         this.id = res.id
+        this.state = res.state
       })
     },
     handlePosting() {

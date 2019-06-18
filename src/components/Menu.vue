@@ -2,7 +2,6 @@
   <Menu
     :active-name="active"
     width='200'
-
   >
     <MenuGroup :title='name' >
       <MenuItem :to='`/userSpace/${this.$route.params.id}/userinfo`' name="userinfo">
@@ -38,9 +37,6 @@ export default {
     active() {
       return this.$route.name
     }
-  },
-  mounted() {
-    console.log(window.innerHeight)
   }
 }
 </script>

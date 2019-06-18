@@ -30,10 +30,13 @@ import {
   MenuGroup,
   RadioGroup,
   Radio,
-  Modal
+  Modal,
+  Tabs,
+  TabPane
 } from 'iview'
 import 'iview/dist/styles/iview.css'
-
+Vue.component('Tabs', Tabs)
+Vue.component('TabPane', TabPane)
 Vue.component('Card', Card)
 Vue.component('Affix', Affix)
 Vue.component('Menu', Menu)

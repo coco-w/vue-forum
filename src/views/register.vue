@@ -71,11 +71,8 @@ export default {
       this.registe({ email, nickname, password }).then(data => {
         if (data.code === 200) {
           this.$Message.success('恭喜你扎畜生注册成功，正在跳转登录页')
-
           this.$router.push('login')
-
           this.SET_ID('')
-
         }
       })
     }
