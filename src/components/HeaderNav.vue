@@ -2,7 +2,7 @@
   <div class="wrapper-header">
     <div class="wrapper-header-nav">
       <div class="logo" @click="handleGOHome">
-        <img src="../assets/img/login_logo.png" alt="">
+        <img src="/public/login_logo.png" alt="">
         <span>DOTA</span>
       </div>
       <div class="apps">

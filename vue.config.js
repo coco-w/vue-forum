@@ -12,9 +12,9 @@ module.exports = {
       .set('@', resolve('src'))
       .set('_c', resolve('src/components'))
       .set('img', resolve('src/assets/img'))
-    config
-      .plugin('webpack-bundle-analyzer')
-      .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin)
+    // config
+    //   .plugin('webpack-bundle-analyzer')
+    //   .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin)
   },
   configureWebpack: {
     plugins: [
@@ -25,7 +25,13 @@ module.exports = {
         threshold: 10240,
         minRatio: 0.8
       })
-    ]
+    ],
+    externals: {
+      'vue': 'Vue',
+      'vuex': 'Vuex',
+      'vue-router': 'VueRouter',
+      'iview': 'iView'
+    }
   },
   // 打包时不生成.map文件
   productionSourceMap: false,
