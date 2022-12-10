@@ -11,7 +11,7 @@
     "axios": "^0.18.0",
     "clonedeep": "^2.0.0",
     "core-js": "^2.6.5",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "format-datetime": "^1.0.2",
     "highlight.js": "^9.15.6",
     "iview": "^3.4.1",
